@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.CompilerController">
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="71.0" prefWidth="500.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button alignment="BOTTOM_LEFT" contentDisplay="CENTER" mnemonicParsing="false" text="Add Switch" />
+         </children>
+      </HBox>
+   </bottom>
+   <top>
+      <HBox prefHeight="43.0" prefWidth="500.0" BorderPane.alignment="CENTER" />
+   </top>
+   <center>
+      <GridPane BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="244.0" minWidth="10.0" prefWidth="143.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="373.0" minWidth="10.0" prefWidth="186.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="373.0" minWidth="10.0" prefWidth="111.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints maxHeight="93.0" minHeight="10.0" prefHeight="57.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="93.0" minHeight="10.0" prefHeight="47.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="216.0" minHeight="10.0" prefHeight="195.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="212.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="212.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Switch IP Address">
+               <GridPane.margin>
+                  <Insets left="2.0" />
+               </GridPane.margin>
+            </Label>
+            <Label text="Switch Type" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="5.0" />
+               </GridPane.margin>
+            </Label>
+            <TextField prefHeight="25.0" prefWidth="325.0" promptText="Switch IP Address" GridPane.columnIndex="1" />
+            <ComboBox fx:id="switchs" onAction="#initialize" prefHeight="25.0" prefWidth="123.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label text="Constraint" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets left="5.0" />
+               </GridPane.margin>
+            </Label>
+            <ListView prefHeight="142.0" prefWidth="206.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Button mnemonicParsing="false" onAction="#goConstraint" text="Add constraint" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+            </Button>
+         </children>
+         <padding>
+            <Insets left="5.0" />
+         </padding>
+      </GridPane>
+   </center>
+   <right>
+      <Region prefHeight="297.0" prefWidth="0.0" BorderPane.alignment="CENTER" />
+   </right>
+</BorderPane>

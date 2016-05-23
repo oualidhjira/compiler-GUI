@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.CompilerController">
+   <top>
+      <HBox prefHeight="53.0" prefWidth="500.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets top="50.0" />
+         </BorderPane.margin>
+         <children>
+            <Label prefHeight="25.0" prefWidth="111.0" text="Constraints Type">
+               <HBox.margin>
+                  <Insets left="5.0" />
+               </HBox.margin></Label>
+            <Region prefHeight="53.0" prefWidth="96.0" />
+            <Button mnemonicParsing="false" onAction="#contraintPerfItems" text="Ressources" />
+            <Button mnemonicParsing="false" text="Performance" />
+         </children>
+         <padding>
+            <Insets top="10.0" />
+         </padding>
+      </HBox>
+   </top>
+   <bottom>
+      <HBox prefHeight="91.0" prefWidth="500.0" BorderPane.alignment="CENTER" />
+   </bottom>
+</BorderPane>
