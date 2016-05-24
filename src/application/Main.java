@@ -14,8 +14,9 @@ import javafx.scene.layout.BorderPane;
 public class Main extends Application {
 	private BorderPane mainLayout;
 	private static Stage primaryStage;
-	private static Stage swt;
+	public static Stage swt;
 	private static Scene scn;
+	public static Stage cst;
 	private static BorderPane constraintLayout;
 	
 	@Override
@@ -35,6 +36,7 @@ public class Main extends Application {
 		primaryStage.show();
 		
 	}
+	
 	public static void switchShow() throws IOException{
 		FXMLLoader loader=new FXMLLoader();
 		loader.setLocation(Main.class.getResource("view/switch.fxml"));
@@ -52,7 +54,7 @@ public class Main extends Application {
 		loader.setLocation(Main.class.getResource("view/constraints.fxml"));
 		constraintLayout=loader.load();
 		Scene scn=new Scene(constraintLayout);
-		Stage cst=new Stage();
+		cst=new Stage();
 		cst.setTitle("constraints");
 		cst.initModality(Modality.WINDOW_MODAL);
 		cst.initOwner(swt);
@@ -67,11 +69,12 @@ public class Main extends Application {
 		constraintLayout.setCenter(con);
 			
 	}
-	
-	
-		
-		
-	
+	public static void pathProcessingConstraint() throws IOException{		
+		FXMLLoader loader=new FXMLLoader();		
+		loader.setLocation(Main.class.getResource("view/pathProcessing.fxml"));
+		BorderPane tbl=loader.load();
+		constraintLayout.setCenter(tbl);
+	}
 	
 	public static void main(String[] args) {
 		launch(args);

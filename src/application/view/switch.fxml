@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.CompilerController">
+<BorderPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.SwitchController">
    <bottom>
       <HBox alignment="CENTER" prefHeight="71.0" prefWidth="500.0" BorderPane.alignment="CENTER">
          <children>
@@ -43,13 +43,13 @@
                </GridPane.margin>
             </Label>
             <TextField prefHeight="25.0" prefWidth="325.0" promptText="Switch IP Address" GridPane.columnIndex="1" />
-            <ComboBox fx:id="switchs" onAction="#initialize" prefHeight="25.0" prefWidth="123.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <ComboBox fx:id="switchtype" prefHeight="25.0" prefWidth="123.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Label text="Constraint" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets left="5.0" />
                </GridPane.margin>
             </Label>
-            <ListView prefHeight="142.0" prefWidth="206.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <ListView fx:id="listConstraints" prefHeight="142.0" prefWidth="206.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Button mnemonicParsing="false" onAction="#goConstraint" text="Add constraint" GridPane.columnIndex="2" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets left="10.0" />
