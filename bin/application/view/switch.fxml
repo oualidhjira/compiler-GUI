@@ -10,7 +10,8 @@
    <bottom>
       <HBox alignment="CENTER" prefHeight="71.0" prefWidth="500.0" BorderPane.alignment="CENTER">
          <children>
-            <Button alignment="BOTTOM_LEFT" contentDisplay="CENTER" mnemonicParsing="false" text="Add Switch" />
+            <Button mnemonicParsing="false" onAction="#validate" text="Validate" />
+            <Button alignment="BOTTOM_LEFT" contentDisplay="CENTER" mnemonicParsing="false" onAction="#submitSwitch" text="Add Switch" />
          </children>
       </HBox>
    </bottom>
@@ -42,8 +43,8 @@
                   <Insets left="5.0" />
                </GridPane.margin>
             </Label>
-            <TextField prefHeight="25.0" prefWidth="325.0" promptText="Switch IP Address" GridPane.columnIndex="1" />
-            <ComboBox fx:id="switchtype" prefHeight="25.0" prefWidth="123.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="Ip" onAction="#getIpAddr" prefHeight="25.0" prefWidth="325.0" promptText="Switch IP Address" GridPane.columnIndex="1" />
+            <ComboBox fx:id="switchtype" onAction="#getType" prefHeight="25.0" prefWidth="123.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Label text="Constraint" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets left="5.0" />

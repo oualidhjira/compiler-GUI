@@ -13,7 +13,7 @@ import javafx.scene.layout.BorderPane;
 
 public class Main extends Application {
 	private BorderPane mainLayout;
-	private static Stage primaryStage;
+	public static Stage primaryStage;
 	public static Stage swt;
 	private static Scene scn;
 	public static Stage cst;
@@ -27,7 +27,7 @@ public class Main extends Application {
 		
 		
 	}
-	private void complierShow() throws IOException{
+	public void complierShow() throws IOException{
 		FXMLLoader loader=new FXMLLoader();
 		loader.setLocation(Main.class.getResource("view/Compiler.fxml"));
 		mainLayout= loader.load();
@@ -42,7 +42,7 @@ public class Main extends Application {
 		loader.setLocation(Main.class.getResource("view/switch.fxml"));
 		BorderPane switchLayout=loader.load();
 		Scene scn=new Scene(switchLayout);
-		Stage swt=new Stage();
+		swt=new Stage();
 		swt.setTitle("Switch");
 		swt.initModality(Modality.WINDOW_MODAL);
 		swt.initOwner(primaryStage);

@@ -19,9 +19,10 @@ public class constraintsResourceItemController {
 	ObservableList<String> matchfields=FXCollections.observableArrayList("Ipsrc","Ipdst","portsrc","portdst","macsrc","macdst","ingressport");
 	ObservableList<String> tables=FXCollections.observableArrayList("1","2");
 	public static RessourcesConstraints rescons;
-	int id;
-	String field;
-	int cap;
+	static ObservableList<String> list_Constraints = FXCollections.observableArrayList();
+	static int id;
+	static String field;
+	static int cap;
 	@FXML
 	private ComboBox<String> match;
 	@FXML
@@ -43,6 +44,7 @@ public class constraintsResourceItemController {
 	}
 	@FXML
 	private void getMatchField(){
+		
 		field=match.getValue();
 		
 	}
@@ -53,19 +55,29 @@ public class constraintsResourceItemController {
 	}	
 	@FXML
 	private void submitConstraints() throws IOException{
-		SwitchController swt=new SwitchController();
-		System.out.println(this.getConstraints().toString());
-		List<String> list_constraints = new ArrayList<String>(Arrays.asList(this.getConstraints().toString().split("\\,")));
-		swt.setListview(list_constraints);
-		System.out.println(swt.list_Constraints);
+		//SwitchController swt=new SwitchController();
+		//System.out.println(this.getConstraints().toString());
+		//List<String> list_constraints = new ArrayList<String>(Arrays.asList(this.getConstraints().toString().split("\\,")));
+		//swt.setListview(list_constraints);
 		CompilerController comp=new CompilerController();
+		//setListview(Arrays.asList(constraintsResourceItemController.getConstraints().toString()));
+		//SwitchController.listConstraints.setItems(list_Constraints);
+		CompilerController.c.setListview(Arrays.asList(CompilerController.c.getConstraints().toString()));
+		SwitchController.swt.addConstraints(getConstraints().getClass().getName(),getConstraints() );
+		System.out.println(SwitchController.swt.toString());
+		Main.swt.close();
 		comp.goswitch();
+		
 		Main.cst.close();
 		
 	}	
-	public RessourcesConstraints getConstraints(){
+	public static RessourcesConstraints getConstraints(){
 		rescons =new RessourcesConstraints(id,cap,field);
 		return rescons;
 
 }
+	public static void setListview(List<String> constraint){
+		//ObservableList<String> list_Constraints=FXCollections.observableArrayList(); 
+		list_Constraints.addAll(constraint);
+	}
 }

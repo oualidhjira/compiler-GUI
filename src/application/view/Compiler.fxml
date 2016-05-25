@@ -51,7 +51,7 @@
       </VBox>
    </top>
    <left>
-      <TreeView prefHeight="185.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+      <TreeView fx:id="treeview" onEditStart="#initialize" prefHeight="185.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
    </left>
    <center>
       <Button mnemonicParsing="false" text="Generate" BorderPane.alignment="BOTTOM_CENTER">
