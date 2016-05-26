@@ -10,7 +10,7 @@
    <bottom>
       <VBox prefHeight="52.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Label prefHeight="15.0" prefWidth="86.0" text="genarator" />
+            <Label prefHeight="15.0" prefWidth="86.0" text="generator" />
          </children>
       </VBox>
    </bottom>
@@ -54,7 +54,7 @@
       <TreeView fx:id="treeview" onEditStart="#initialize" prefHeight="185.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
    </left>
    <center>
-      <Button mnemonicParsing="false" text="Generate" BorderPane.alignment="BOTTOM_CENTER">
+      <Button mnemonicParsing="false" onAction="#generateXML" text="Generate" BorderPane.alignment="BOTTOM_CENTER">
          <BorderPane.margin>
             <Insets />
          </BorderPane.margin>

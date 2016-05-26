@@ -13,17 +13,27 @@ public class constraintsController {
 	private Main main;
 	
 	@FXML
-	private TextField nbrtbl;
+	private  TextField nbrtbl;	
+	public static int nbrtable;
 	
 	@FXML
 	private void contraintPerfItems() throws IOException{
-		main.pathProcessingConstraint();
-		
+		main.pathProcessingConstraint();	
 	}
 	
 	@FXML
 	private void constraintmatch() throws IOException{
+		//System.out.println(nbrtbl.getText());
+		//nbrtable=Integer.parseInt(nbrtbl.getText());
+		nbrtable=Integer.parseInt(nbrtbl.getText());
 		main.constraintPerformanceItems();
+	}
+	
+	
+	@FXML
+	private void getnbrTable(){
+		//System.out.println(nbrtbl.getText());
+		//nbrtable=Integer.parseInt(nbrtbl.getText());
 	}
 	
     

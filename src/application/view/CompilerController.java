@@ -14,19 +14,26 @@ import javafx.scene.control.TreeView;
 public class CompilerController {
 	private Main main;
 	public static constraintsResourceItemController c;
-	
+	public static Switch s;
+	public static TreeView<Object> tree=new TreeView<>();
 	@FXML
-	private TreeView<Object> treeview;
+	private  TreeView<Object> treeview;
+	@FXML
+	private void generateXML(){
+		TreeviewXml.xml();
+	}
 	
 	@FXML
 	private void initialize(){
 
 	treeview.setRoot(SwitchController.rootItem);
+	tree=treeview;
 	}
 	
 	@FXML
 	public void goswitch() throws IOException{
 		c=new constraintsResourceItemController();
+		s=new Switch();
 		main.switchShow();
 		
 	}

@@ -17,7 +17,7 @@ import javafx.scene.control.TextField;
 
 public class constraintsResourceItemController {
 	ObservableList<String> matchfields=FXCollections.observableArrayList("Ipsrc","Ipdst","portsrc","portdst","macsrc","macdst","ingressport");
-	ObservableList<String> tables=FXCollections.observableArrayList("1","2");
+	ObservableList<String> tables=FXCollections.observableArrayList();
 	public static RessourcesConstraints rescons;
 	static ObservableList<String> list_Constraints = FXCollections.observableArrayList();
 	static int id;
@@ -32,7 +32,11 @@ public class constraintsResourceItemController {
 	
 	@FXML
 	private void initialize() {
-		
+		int i;
+		System.out.println(constraintsController.nbrtable);
+		for(i=0;i<constraintsController.nbrtable-1;i++){
+			tables.add(Integer.toString(i));
+		} 
 		match.setItems(matchfields);
 	    tablid.setItems(tables);
 		
@@ -59,21 +63,27 @@ public class constraintsResourceItemController {
 		//System.out.println(this.getConstraints().toString());
 		//List<String> list_constraints = new ArrayList<String>(Arrays.asList(this.getConstraints().toString().split("\\,")));
 		//swt.setListview(list_constraints);
-		CompilerController comp=new CompilerController();
+		//CompilerController comp=new CompilerController();
 		//setListview(Arrays.asList(constraintsResourceItemController.getConstraints().toString()));
 		//SwitchController.listConstraints.setItems(list_Constraints);
 		CompilerController.c.setListview(Arrays.asList(CompilerController.c.getConstraints().toString()));
-		SwitchController.swt.addConstraints(getConstraints().getClass().getName(),getConstraints() );
-		System.out.println(SwitchController.swt.toString());
-		Main.swt.close();
-		comp.goswitch();
 		
+		CompilerController.s.addConstraints(getConstraints().getClass().getName(),getConstraints() );
+		System.out.println(CompilerController.s.toString());
+		Main.swt.close();
+		//comp.goswitch();
+		Main.switchShow();
 		Main.cst.close();
 		
 	}	
 	public static RessourcesConstraints getConstraints(){
-		rescons =new RessourcesConstraints(id,cap,field);
-		return rescons;
+		//rescons =new RessourcesConstraints(id,cap,field);
+		SwitchController.rc.setTableId(id);
+		SwitchController.rc.setMatchfield(field);
+		SwitchController.rc.setCapacity(cap);
+	
+		
+		return SwitchController.rc;
 
 }
 	public static void setListview(List<String> constraint){

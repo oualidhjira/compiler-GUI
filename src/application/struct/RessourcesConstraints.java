@@ -9,6 +9,9 @@ public class RessourcesConstraints {
 		return "tableId=" + tableId + ",capacity=" + capacity + ",matchfield=" + matchfield
 				;
 	}
+	public RessourcesConstraints() {
+		super();
+	}
 	String matchfield;
 	public RessourcesConstraints(int tableId, int capacity, String matchfield) {
 		super();

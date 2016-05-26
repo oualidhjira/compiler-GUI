@@ -3,6 +3,9 @@ package application;
 	
 import java.io.IOException;
 
+import application.struct.RessourcesConstraints;
+import application.struct.Switch;
+import application.view.SwitchController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Modality;
@@ -18,6 +21,8 @@ public class Main extends Application {
 	private static Scene scn;
 	public static Stage cst;
 	private static BorderPane constraintLayout;
+	//public static Switch s;
+	//public static RessourcesConstraints rc;
 	
 	@Override
 	public void start(Stage primaryStage) throws IOException {
@@ -41,6 +46,7 @@ public class Main extends Application {
 		FXMLLoader loader=new FXMLLoader();
 		loader.setLocation(Main.class.getResource("view/switch.fxml"));
 		BorderPane switchLayout=loader.load();
+		//s=new Switch();
 		Scene scn=new Scene(switchLayout);
 		swt=new Stage();
 		swt.setTitle("Switch");
@@ -63,13 +69,15 @@ public class Main extends Application {
 		
 	}
 	public static void constraintPerformanceItems() throws IOException{
+		//rc=new RessourcesConstraints();
 		FXMLLoader loader=new FXMLLoader();
 		loader.setLocation(Main.class.getResource("view/constraintRessourceItems.fxml"));
 		BorderPane con=loader.load();
 		constraintLayout.setCenter(con);
 			
 	}
-	public static void pathProcessingConstraint() throws IOException{		
+	public static void pathProcessingConstraint() throws IOException{
+		
 		FXMLLoader loader=new FXMLLoader();		
 		loader.setLocation(Main.class.getResource("view/pathProcessing.fxml"));
 		BorderPane tbl=loader.load();

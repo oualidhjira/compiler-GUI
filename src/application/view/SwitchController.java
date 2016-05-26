@@ -1,11 +1,13 @@
 package application.view;
 
+import java.awt.image.PixelInterleavedSampleModel;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import application.Main;
+import application.struct.RessourcesConstraints;
 import application.struct.Switch;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -17,9 +19,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.TreeItem;
 
 public class SwitchController {
-	public static Switch swt=new Switch();
+	//public static Switch swt=new Switch();
 	ObservableList<String> switchs=FXCollections.observableArrayList("OvS","Novi");
-	
+	public static RessourcesConstraints rc;
 	static String IpAddr;
 	static String switchType;
 	public static TreeItem<Object> rootItem ;
@@ -42,11 +44,12 @@ public class SwitchController {
 		//System.out.println(CompilerController.c);
 		//c.setListview(Arrays.asList(c.getConstraints().toString()));
 		listConstraints.setItems(CompilerController.c.list_Constraints);
+		
 		//c.setListview(Arrays.asList(c.getConstraints().toString()));
 		rootItem.setExpanded(true);
 		
 		//constraintsResourceItemController.setListview(Arrays.asList(constraintsResourceItemController.getConstraints().toString()));
-		swt.addConstraints(CompilerController.c.getConstraints().getClass().getName(),constraintsResourceItemController.getConstraints());
+		//swt.addConstraints(CompilerController.c.getConstraints().getClass().getName(),constraintsResourceItemController.getConstraints());
 		//System.out.println(swt.toString());
 		//listConstraints.setItems(constraintsResourceItemController.list_Constraints);
 		//set switch type items
@@ -58,6 +61,7 @@ public class SwitchController {
 
 	@FXML
 	private void goConstraint() throws IOException{
+		rc=new RessourcesConstraints();
 		main.constraintShow();
 	}
 	@FXML
@@ -77,8 +81,10 @@ public class SwitchController {
 		Switch swti=new Switch();
 		swti.setIpAddress(Ip.getText());
 		swti.setSwitchType(switchType);
-		swti.addConstraints(constraintsResourceItemController.getConstraints().getClass().getName(),constraintsResourceItemController.getConstraints());
-		swti.setConstraint(swt.getConstraint());
+		System.out.println("dddddddsdsdsdsd");
+		//swti.addConstraints(constraintsResourceItemController.getConstraints().getClass().getName(),constraintsResourceItemController.getConstraints());
+		System.out.println(CompilerController.s.toString());
+		swti.setConstraint(CompilerController.s.getConstraint());
 		//System.out.println(swti.toString());
 		TreeItem<Object> switchIP = new TreeItem<Object>(swti.getIpAddress());
 		TreeItem<Object> switchTypes = new TreeItem<Object>(swti.getSwitchType());
