@@ -53,7 +53,7 @@
                   <Insets left="10.0" />
                </GridPane.margin>
             </Label>
-            <TextField fx:id="capacity" layoutX="187.0" layoutY="46.0" maxWidth="150.0" onAction="#getCapacity" prefHeight="25.0" prefWidth="270.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="capacity" layoutX="187.0" layoutY="46.0" maxWidth="150.0" prefHeight="25.0" prefWidth="270.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
          </children>
       </GridPane>
    </left>

@@ -7,10 +7,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import com.sun.glass.ui.View.Capability;
+
 import application.Main;
 import application.struct.RessourcesConstraints;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.SetChangeListener;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
@@ -38,8 +41,7 @@ public class constraintsResourceItemController {
 			tables.add(Integer.toString(i));
 		} 
 		match.setItems(matchfields);
-	    tablid.setItems(tables);
-		
+	    tablid.setItems(tables);		
 	}
 	@FXML
 	private void getTableId(){
@@ -52,8 +54,8 @@ public class constraintsResourceItemController {
 		field=match.getValue();
 		
 	}
-	@FXML
-	private void getCapacity(){
+	
+	public void getCapacity(){
 		System.out.println(capacity.getText());
 		cap=Integer.parseInt(capacity.getText());	
 	}	
@@ -66,21 +68,25 @@ public class constraintsResourceItemController {
 		//CompilerController comp=new CompilerController();
 		//setListview(Arrays.asList(constraintsResourceItemController.getConstraints().toString()));
 		//SwitchController.listConstraints.setItems(list_Constraints);
+		SwitchController.rc.setCapacity(Integer.parseInt(capacity.getText()));
 		CompilerController.c.setListview(Arrays.asList(CompilerController.c.getConstraints().toString()));
-		
 		CompilerController.s.addConstraints(getConstraints().getClass().getName(),getConstraints() );
 		System.out.println(CompilerController.s.toString());
 		Main.swt.close();
 		//comp.goswitch();
+		//Main.cst.close();
 		Main.switchShow();
-		Main.cst.close();
-		
+		//Main.cst.close();
+		//Main.constraintShow();
+		Main.constraintPerformanceItems();
+		//Main.cst.close();
 	}	
 	public static RessourcesConstraints getConstraints(){
 		//rescons =new RessourcesConstraints(id,cap,field);
+		
 		SwitchController.rc.setTableId(id);
 		SwitchController.rc.setMatchfield(field);
-		SwitchController.rc.setCapacity(cap);
+		//SwitchController.rc.setCapacity()
 	
 		
 		return SwitchController.rc;

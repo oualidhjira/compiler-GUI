@@ -22,7 +22,7 @@ public class constraintsController {
 	}
 	
 	@FXML
-	private void constraintmatch() throws IOException{
+	public void constraintmatch() throws IOException{
 		//System.out.println(nbrtbl.getText());
 		//nbrtable=Integer.parseInt(nbrtbl.getText());
 		nbrtable=Integer.parseInt(nbrtbl.getText());

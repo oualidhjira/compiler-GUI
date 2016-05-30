@@ -43,6 +43,7 @@ public class SwitchController {
 		rootItem = new TreeItem<Object>();
 		//System.out.println(CompilerController.c);
 		//c.setListview(Arrays.asList(c.getConstraints().toString()));
+		
 		listConstraints.setItems(CompilerController.c.list_Constraints);
 		
 		//c.setListview(Arrays.asList(c.getConstraints().toString()));
@@ -71,7 +72,6 @@ public class SwitchController {
 	}
 	@FXML
 	private void getType(){
-		System.out.println("switchtype.getValue()");
 		switchType=switchtype.getValue();
 	}
 	
@@ -81,9 +81,9 @@ public class SwitchController {
 		Switch swti=new Switch();
 		swti.setIpAddress(Ip.getText());
 		swti.setSwitchType(switchType);
-		System.out.println("dddddddsdsdsdsd");
+		//System.out.println("dddddddsdsdsdsd");
 		//swti.addConstraints(constraintsResourceItemController.getConstraints().getClass().getName(),constraintsResourceItemController.getConstraints());
-		System.out.println(CompilerController.s.toString());
+		//System.out.println(CompilerController.s.toString());
 		swti.setConstraint(CompilerController.s.getConstraint());
 		//System.out.println(swti.toString());
 		TreeItem<Object> switchIP = new TreeItem<Object>(swti.getIpAddress());
