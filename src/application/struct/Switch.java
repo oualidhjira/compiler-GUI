@@ -8,6 +8,7 @@ public class Switch {
 	
 	String IpAddress;
 	String SwitchType;
+	
 	HashMap<Integer ,HashMap<String,RessourcesConstraints>> constraint=new HashMap<Integer ,HashMap<String,RessourcesConstraints>>();
 	int i=0;
 	public Switch() {
@@ -33,7 +34,25 @@ public class Switch {
 	}
 	public HashMap<Integer ,HashMap<String,RessourcesConstraints>> getConstraint() {
 		return constraint;
+		}
+	
+	public ArrayList<RessourcesConstraints> getRessourcesConstraints(HashMap<Integer ,HashMap<String,RessourcesConstraints>> constraint){	
+		int j;
+		ArrayList<RessourcesConstraints> rs = new ArrayList<RessourcesConstraints>();
+		//System.out.println(constraint);
+		for (i=0;i<constraint.size();i++){
+			for (j=0;j<constraint.get(i).size();j++){
+				//System.out.println(constraint.get(i).entrySet());
+				//if we have performance constraints we should add condition on the type of the key
+				//System.out.println(constraint.get(i).keySet());
+				rs.add(constraint.get(i).get("application.struct.RessourcesConstraints"));
+
+			}		
+		}
+		//System.out.println(rs);
+	    return rs;
 	}
+
 	public void setConstraint(HashMap<Integer ,HashMap<String,RessourcesConstraints>> constraint) {
 		this.constraint = constraint;
 	}

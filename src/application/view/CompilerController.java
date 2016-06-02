@@ -33,7 +33,7 @@ public class CompilerController {
 	@FXML
 	public void goswitch() throws IOException{
 		c=new constraintsResourceItemController();
-		System.out.println(c.list_Constraints);
+		//System.out.println(c.list_Constraints);
 		c.list_Constraints = FXCollections.observableArrayList();
 		s=new Switch();
 		main.switchShow();

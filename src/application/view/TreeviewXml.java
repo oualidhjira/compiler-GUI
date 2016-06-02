@@ -30,7 +30,10 @@ import javafx.scene.control.TreeItem;
 
 	public class TreeviewXml {
 		public static  ArrayList<String> Attribut=new ArrayList<String>();
+		public static ArrayList<String> specs=new ArrayList<String>();
 		static int i=0;
+		static int j=0;
+		static int h=0;
 	
 	    public static void xml() {
 	        
@@ -38,8 +41,14 @@ import javafx.scene.control.TreeItem;
 	        	Attribut.add("Switchs");
 	        	Attribut.add("IP");
 	        	Attribut.add("Type");
-	        	Attribut.add("Constraints");
-	        	System.out.println(Attribut);
+	        	Attribut.add("Constraint");
+	        	specs.add("specs");
+	        	specs.add("path_processing");
+	        	//specs.add("constraint");
+	        	specs.add("table");
+	        	specs.add("matchfield");
+	        	specs.add("number_entry");
+	        	//System.out.println(Attribut);
 	            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 	            Document doc = factory.newDocumentBuilder().newDocument();
 	            Element rootElement = doc.createElement("Switchs");
@@ -47,8 +56,8 @@ import javafx.scene.control.TreeItem;
 
 	            // Get tree root...
 	            TreeItem<Object> root =  CompilerController.tree.getRoot();
-	            System.out.println(root.getChildren());
-	            System.out.println(rootElement);
+	           // System.out.println(root.getChildren());
+	            //System.out.println(rootElement);
 
 	            parseTreeNode(root, rootElement);
 
@@ -69,30 +78,45 @@ import javafx.scene.control.TreeItem;
 	    }
 
 	    private static void parseTreeNode(TreeItem<Object> treeNode, Node doc) {
-
-	        Element parentElement = doc.getOwnerDocument().createElement("Specs");
+	    	
+	        Element parentElement = doc.getOwnerDocument().createElement(specs.get(j));
 	    	
 	        doc.appendChild(parentElement);
+	        ArrayList<String> treechild=new ArrayList<String>();
 	        Iterator it=treeNode.getChildren().iterator();
+	        //treechild= (ArrayList) treeNode.getChildren();
+	       
+	        System.out.println(treeNode.getChildren());
 	        // Apply properties to root element...
-	        System.out.println(treeNode.getValue());
+	        //System.out.println(treeNode.getValue());
 	        //Iterator it=treeNode.getChildren().iterator();
 	        //while (it.hasNext()) {
 	        
 	        Attr attrName;
+	        //if (treechild.size()!=0){
+	        //for (h=0 ;h < treechild.size();h++){
 	        if(it.hasNext()){
 	        attrName = doc.getOwnerDocument().createAttribute(Attribut.get(i));
 	        attrName.setNodeValue(treeNode.getValue().toString());
 	        parentElement.getAttributes().setNamedItem(attrName);
+	        //System.out.println("ffffffffff");
+	        i++;
+	        //} 
 	        }
-	        else{attrName = doc.getOwnerDocument().createAttribute("Constraints");
+	        else{
+	        attrName = doc.getOwnerDocument().createAttribute(specs.get(j));
+	        //System.out.println("ddddd");
 	        attrName.setNodeValue(treeNode.getValue().toString());
-	        parentElement.getAttributes().setNamedItem(attrName);}
+	        parentElement.getAttributes().setNamedItem(attrName);
+	        j++;
+	        //System.out.println(j);
+	        }
 	        //Enumeration kiddies = (Enumeration) treeNode.getChildren();
 	        
-	        while (it.hasNext()) {
+	        while (it.hasNext() && j<specs.size()) {
 	            //TreeNode child = (TreeNode) kiddies.nextElement();
 	            TreeItem<Object> child =(TreeItem) it.next();
+	            System.out.println(child);
 	            i++;
 	            parseTreeNode(child, parentElement);
 	            

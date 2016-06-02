@@ -71,7 +71,7 @@ public class constraintsResourceItemController {
 		SwitchController.rc.setCapacity(Integer.parseInt(capacity.getText()));
 		CompilerController.c.setListview(Arrays.asList(CompilerController.c.getConstraints().toString()));
 		CompilerController.s.addConstraints(getConstraints().getClass().getName(),getConstraints() );
-		System.out.println(CompilerController.s.toString());
+		//System.out.println(CompilerController.s.toString());
 		Main.swt.close();
 		//comp.goswitch();
 		//Main.cst.close();
