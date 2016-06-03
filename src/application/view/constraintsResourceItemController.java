@@ -35,18 +35,28 @@ public class constraintsResourceItemController {
 	
 	@FXML
 	private void initialize() {
-		int i;
-		System.out.println(constraintsController.nbrtable);
-		for(i=0;i<constraintsController.nbrtable-1;i++){
-			tables.add(Integer.toString(i));
-		} 
+		
+		//System.out.println(constraintsController.nbrtable);
+		//for(i=0;i<constraintsController.nbrtable-1;i++){
+		//	tables.add(Integer.toString(i));
+		//}
+		//System.out.println(SwitchController.i);
+		if(SwitchController.i<constraintsController.nbrtable){
+		
+		tablid.setValue(Integer.toString(SwitchController.i));
+		
+		//match.setItems(matchfields);
+	    //tablid.setItems(tables);		
+		}
 		match.setItems(matchfields);
-	    tablid.setItems(tables);		
+		//SwitchController.i++;
 	}
 	@FXML
 	private void getTableId(){
+		//System.out.println(tablid.getValue());
 		id=Integer.parseInt(tablid.getValue());
-		
+		System.out.println(id);
+		//id=SwitchController.i;
 	}
 	@FXML
 	private void getMatchField(){
@@ -68,23 +78,37 @@ public class constraintsResourceItemController {
 		//CompilerController comp=new CompilerController();
 		//setListview(Arrays.asList(constraintsResourceItemController.getConstraints().toString()));
 		//SwitchController.listConstraints.setItems(list_Constraints);
+		SwitchController.rc.setTableId(SwitchController.i);
+		SwitchController.i++;
 		SwitchController.rc.setCapacity(Integer.parseInt(capacity.getText()));
 		CompilerController.c.setListview(Arrays.asList(CompilerController.c.getConstraints().toString()));
-		CompilerController.s.addConstraints(getConstraints().getClass().getName(),getConstraints() );
-		//System.out.println(CompilerController.s.toString());
+		CompilerController.s.addConstraints(getConstraints().getClass().getName(),getConstraints());
+		System.out.println(getConstraints());
+		//CompilerController.s.addConstraints(getConstraints());
+		System.out.println(CompilerController.s.toString());
 		Main.swt.close();
 		//comp.goswitch();
 		//Main.cst.close();
-		Main.switchShow();
-		//Main.cst.close();
 		//Main.constraintShow();
+		//Main.constraintPerformanceItems();
+		Main.switchShow();
+		Main.constraintShow();
 		Main.constraintPerformanceItems();
 		//Main.cst.close();
+		//Main.constraintShow();
+		//Main.constraintPerformanceItems();
+		//Main.cst.close();
+		//System.out.println(constraintsController.i);
+		//SwitchController.i++;
 	}	
+	@FXML
+	private void  closeConstraint(){
+		Main.cst.close();
+	}
 	public static RessourcesConstraints getConstraints(){
 		//rescons =new RessourcesConstraints(id,cap,field);
-		
-		SwitchController.rc.setTableId(id);
+		//System.out.println(id);
+		//SwitchController.rc.setTableId(id);
 		SwitchController.rc.setMatchfield(field);
 		//SwitchController.rc.setCapacity()
 	

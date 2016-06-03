@@ -25,7 +25,6 @@ public class CompilerController {
 	
 	@FXML
 	private void initialize(){
-
 	treeview.setRoot(SwitchController.rootItem);
 	tree=treeview;
 	}
@@ -38,6 +37,12 @@ public class CompilerController {
 		s=new Switch();
 		main.switchShow();
 		
+	}
+	@FXML
+	public void newproject() throws IOException{
+		SwitchController.rootItem = new TreeItem<Object>();
+		main.primaryStage.close();
+		main.complierShow();
 	}
 	
 }

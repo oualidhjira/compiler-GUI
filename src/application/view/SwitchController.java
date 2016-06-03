@@ -25,7 +25,7 @@ public class SwitchController {
 	static String IpAddr;
 	static String switchType;
 	public static TreeItem<Object> rootItem ;
-	
+	public static int i=0;
     Main main=new Main();
     @FXML
     private TextField Ip;
@@ -112,8 +112,8 @@ public class SwitchController {
 			 rootItem.getChildren().add(switchconstype);
 			 //switchTypes.getChildren().add(switchconstype);
 			 switchconstype.getChildren().add(switchtabID);
-		     switchconstype.getChildren().add(switchMatch);
-			 switchconstype.getChildren().add(switchCapa);
+			 switchtabID.getChildren().add(switchMatch);
+			 switchtabID.getChildren().add(switchCapa);
 		}
 		
 		

@@ -15,7 +15,7 @@ public class constraintsController {
 	@FXML
 	private  TextField nbrtbl;	
 	public static int nbrtable;
-	
+	public static int i=0;
 	@FXML
 	private void contraintPerfItems() throws IOException{
 		main.pathProcessingConstraint();	

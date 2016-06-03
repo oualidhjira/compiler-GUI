@@ -41,13 +41,16 @@ import javafx.scene.control.TreeItem;
 	        	Attribut.add("Switchs");
 	        	Attribut.add("IP");
 	        	Attribut.add("Type");
-	        	Attribut.add("Constraint");
-	        	specs.add("specs");
+	        	Attribut.add("Type");
+	        	Attribut.add("Id");
+	        	Attribut.add("matchfield");
+	        	Attribut.add("number_entry");
+	        	specs.add("Switch");
 	        	specs.add("path_processing");
-	        	//specs.add("constraint");
-	        	specs.add("table");
-	        	specs.add("matchfield");
-	        	specs.add("number_entry");
+	        	specs.add("Table");
+	        	//specs.add("table");
+	        	//specs.add("matchfield");
+	        	//specs.add("number_entry");
 	        	//System.out.println(Attribut);
 	            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 	            Document doc = factory.newDocumentBuilder().newDocument();
@@ -78,15 +81,18 @@ import javafx.scene.control.TreeItem;
 	    }
 
 	    private static void parseTreeNode(TreeItem<Object> treeNode, Node doc) {
-	    	
+	    	if (i==3 && j<specs.size() ) {
+	    	j=2;
+	    	}
 	        Element parentElement = doc.getOwnerDocument().createElement(specs.get(j));
-	    	
 	        doc.appendChild(parentElement);
-	        ArrayList<String> treechild=new ArrayList<String>();
+	        
+	    	
+	        //ArrayList<String> treechild=new ArrayList<String>();
 	        Iterator it=treeNode.getChildren().iterator();
 	        //treechild= (ArrayList) treeNode.getChildren();
 	       
-	        System.out.println(treeNode.getChildren());
+	        //System.out.println(treeNode.getChildren());
 	        // Apply properties to root element...
 	        //System.out.println(treeNode.getValue());
 	        //Iterator it=treeNode.getChildren().iterator();
@@ -95,29 +101,49 @@ import javafx.scene.control.TreeItem;
 	        Attr attrName;
 	        //if (treechild.size()!=0){
 	        //for (h=0 ;h < treechild.size();h++){
-	        if(it.hasNext()){
+	        //if (i>=4) i=0;
+	        if(it.hasNext()){ 
+	        //System.out.println("jouj");
+	        System.out.println(i);
+	        if (i==0){
+	        parentElement = doc.getOwnerDocument().createElement("Spec");
+	        doc.appendChild(parentElement);}
+	        if (i==3){
+		        parentElement = doc.getOwnerDocument().createElement("Path_processing");
+		        doc.appendChild(parentElement);}
 	        attrName = doc.getOwnerDocument().createAttribute(Attribut.get(i));
 	        attrName.setNodeValue(treeNode.getValue().toString());
 	        parentElement.getAttributes().setNamedItem(attrName);
+	        //j++;
 	        //System.out.println("ffffffffff");
-	        i++;
+	        //i++;
 	        //} 
+	        i++;
 	        }
 	        else{
-	        attrName = doc.getOwnerDocument().createAttribute(specs.get(j));
+	        
+	        //j=0;	
+	        attrName = doc.getOwnerDocument().createAttribute(Attribut.get(i));
 	        //System.out.println("ddddd");
+	        //System.out.println(treeNode.getValue().toString());
 	        attrName.setNodeValue(treeNode.getValue().toString());
 	        parentElement.getAttributes().setNamedItem(attrName);
-	        j++;
+	        i++;
+	        if (i==7){
+	        	i=3;
+	        	
+	        }
+	        //j++;
 	        //System.out.println(j);
 	        }
 	        //Enumeration kiddies = (Enumeration) treeNode.getChildren();
 	        
-	        while (it.hasNext() && j<specs.size()) {
+	        while (it.hasNext() ) {
 	            //TreeNode child = (TreeNode) kiddies.nextElement();
 	            TreeItem<Object> child =(TreeItem) it.next();
-	            System.out.println(child);
-	            i++;
+	            //System.out.println(child);
+	            //i++;
+	            //j++;
 	            parseTreeNode(child, parentElement);
 	            
 	        }
