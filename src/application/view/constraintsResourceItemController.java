@@ -41,12 +41,16 @@ public class constraintsResourceItemController {
 		//	tables.add(Integer.toString(i));
 		//}
 		//System.out.println(SwitchController.i);
+		if(SwitchController.i==constraintsController.nbrtable){
+			closeConstraint();
+		}
+		
 		if(SwitchController.i<constraintsController.nbrtable){
-		
+			
 		tablid.setValue(Integer.toString(SwitchController.i));
-		
 		//match.setItems(matchfields);
-	    //tablid.setItems(tables);		
+	    //tablid.setItems(tables);
+	
 		}
 		match.setItems(matchfields);
 		//SwitchController.i++;
@@ -78,17 +82,29 @@ public class constraintsResourceItemController {
 		//CompilerController comp=new CompilerController();
 		//setListview(Arrays.asList(constraintsResourceItemController.getConstraints().toString()));
 		//SwitchController.listConstraints.setItems(list_Constraints);
-		SwitchController.rc.setTableId(SwitchController.i);
+		RessourcesConstraints rc=new RessourcesConstraints();
+		rc.setCapacity(Integer.parseInt(capacity.getText()));
+		rc.setMatchfield(field);
+		rc.setTableId(SwitchController.i);
+		//SwitchController.rc.setMatchfield(field);
+		//SwitchController.rc.setTableId(SwitchController.i);
 		SwitchController.i++;
-		SwitchController.rc.setCapacity(Integer.parseInt(capacity.getText()));
-		CompilerController.c.setListview(Arrays.asList(CompilerController.c.getConstraints().toString()));
-		CompilerController.s.addConstraints(getConstraints().getClass().getName(),getConstraints());
-		System.out.println(getConstraints());
+		//SwitchController.rc.setCapacity(Integer.parseInt(capacity.getText()));
+		//System.out.println(CompilerController.s.toString());
+		CompilerController.c.setListview(Arrays.asList(rc.toString()));
+		
+		//System.out.println(CompilerController.s.toString());
+		//CompilerController.s.addConstraints(getConstraints().getClass().getName(),getConstraints());
+		//CompilerController.s.addConstraints(getConstraints().getClass().getName(),SwitchController.rc);
+		CompilerController.s.addConstraints(rc.getClass().getName(),rc);
+		//CompilerController.s.addConstraints(SwitchController.rc.getClass().getName(),SwitchController.rc);
+		//System.out.println(getConstraints());
 		//CompilerController.s.addConstraints(getConstraints());
-		System.out.println(CompilerController.s.toString());
-		Main.swt.close();
+		//System.out.println(CompilerController.s.toString());
+		//Main.swt.close();
 		//comp.goswitch();
-		//Main.cst.close();
+		Main.cst.close();
+		Main.swt.close();
 		//Main.constraintShow();
 		//Main.constraintPerformanceItems();
 		Main.switchShow();
@@ -105,17 +121,17 @@ public class constraintsResourceItemController {
 	private void  closeConstraint(){
 		Main.cst.close();
 	}
-	public static RessourcesConstraints getConstraints(){
+	//public static RessourcesConstraints getConstraints(){
 		//rescons =new RessourcesConstraints(id,cap,field);
 		//System.out.println(id);
 		//SwitchController.rc.setTableId(id);
-		SwitchController.rc.setMatchfield(field);
+		//SwitchController.rc.setMatchfield(field);
 		//SwitchController.rc.setCapacity()
 	
 		
-		return SwitchController.rc;
+		//return SwitchController.rc;
 
-}
+//}
 	public static void setListview(List<String> constraint){
 		//ObservableList<String> list_Constraints=FXCollections.observableArrayList(); 
 		list_Constraints.addAll(constraint);

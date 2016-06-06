@@ -10,7 +10,7 @@ public class Switch {
 	String SwitchType;
 	
 	HashMap<Integer ,HashMap<String,RessourcesConstraints>> constraint=new HashMap<Integer ,HashMap<String,RessourcesConstraints>>();
-	int i=0;
+	public static int i=0;
 	int h;
 	public Switch() {
 		super();
@@ -65,12 +65,12 @@ public class Switch {
 		HashMap<String,RessourcesConstraints> a=new HashMap<String,RessourcesConstraints>();
 		//System.out.println(a.toString());
 		a.put(Type, Constraints);
-		System.out.println(Constraints);
-		System.out.println(a);
+		//System.out.println(Constraints);
+		//System.out.println(a);
 		this.constraint.put(i,a);
-		System.out.println(i);
+		//System.out.println(i);
 		i=i+1;
-		System.out.println(this.constraint.toString());
+		//System.out.println(this.constraint.toString());
 	}
 	
 	//RessourcesConstraints

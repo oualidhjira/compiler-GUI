@@ -3,6 +3,9 @@ package application.view;
 
 	import java.awt.List;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Iterator;
@@ -35,9 +38,10 @@ import javafx.scene.control.TreeItem;
 		static int j=0;
 		static int h=0;
 	
-	    public static void xml() {
+	    public static void xml() throws FileNotFoundException, UnsupportedEncodingException {
 	        
 	        try {
+	        	System.out.println(CompilerController.tree);
 	        	Attribut.add("Switchs");
 	        	Attribut.add("IP");
 	        	Attribut.add("Type");
@@ -52,6 +56,14 @@ import javafx.scene.control.TreeItem;
 	        	//specs.add("matchfield");
 	        	//specs.add("number_entry");
 	        	//System.out.println(Attribut);
+	        	
+	        	//PrintWriter writer = new PrintWriter("constraints.xml","UTF-8");
+	        	//writer.println("<?xml version=\"1.0\" encoding=\"UTF-8\"");
+	        	//writer.println("<switch>");
+	        	//writer.println("<path_processing constraints=\"True\" >");
+	        	
+	        	
+	        	
 	            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 	            Document doc = factory.newDocumentBuilder().newDocument();
 	            Element rootElement = doc.createElement("Switchs");

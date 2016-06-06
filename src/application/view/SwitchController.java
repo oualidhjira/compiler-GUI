@@ -17,6 +17,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TreeItem;
+import javafx.scene.control.cell.TextFieldListCell;
 
 public class SwitchController {
 	//public static Switch swt=new Switch();
@@ -39,6 +40,8 @@ public class SwitchController {
 	
 	@FXML
 	private void initialize(){
+		listConstraints.setEditable(true);
+		//listConstraints.setCellFactory(TextFieldListCell.forListView());	
 		//c=new constraintsResourceItemController();
 		rootItem = new TreeItem<Object>();
 		//System.out.println(CompilerController.c);
@@ -63,6 +66,11 @@ public class SwitchController {
 	@FXML
 	private void goConstraint() throws IOException{
 		rc=new RessourcesConstraints();
+		System.out.println(rc);
+		CompilerController.c.list_Constraints=FXCollections.observableArrayList();
+		SwitchController.i=0;
+		CompilerController.s.i=0;
+		//CompilerController.c.setListview(Arrays.asList(rc.toString()));
 		main.constraintShow();
 	}
 	@FXML
@@ -115,18 +123,15 @@ public class SwitchController {
 			 switchtabID.getChildren().add(switchMatch);
 			 switchtabID.getChildren().add(switchCapa);
 		}
-		
-		
-		
-		
-		//System.out.println(switchs.toString());
-		
-		
-		
-		
+		//System.out.println(switchs.toString());	
 		//System.out.println(swt.toString());
 		main.complierShow();
 		//main.swt.close();
+	}
+	@FXML
+	private void onEdit(){
+		
+		System.out.println("dddd");
 	}
 	@FXML
 	private void validate(){

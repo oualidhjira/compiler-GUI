@@ -3,6 +3,7 @@ package application.view;
 import java.io.IOException;
 
 import application.Main;
+import application.struct.Switch;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -15,7 +16,7 @@ public class constraintsController {
 	@FXML
 	private  TextField nbrtbl;	
 	public static int nbrtable;
-	public static int i=0;
+	public static int i;
 	@FXML
 	private void contraintPerfItems() throws IOException{
 		main.pathProcessingConstraint();	

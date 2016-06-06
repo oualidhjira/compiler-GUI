@@ -1,6 +1,8 @@
 package application.view;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 
 import application.Main;
 import application.struct.Switch;
@@ -19,7 +21,7 @@ public class CompilerController {
 	@FXML
 	private  TreeView<Object> treeview;
 	@FXML
-	private void generateXML(){
+	private void generateXML() throws FileNotFoundException, UnsupportedEncodingException{
 		TreeviewXml.xml();
 	}
 	
