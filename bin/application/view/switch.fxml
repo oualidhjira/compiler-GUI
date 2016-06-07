@@ -43,7 +43,6 @@
                   <Insets left="5.0" />
                </GridPane.margin>
             </Label>
-            <TextField fx:id="Ip" onAction="#getIpAddr" prefHeight="25.0" prefWidth="325.0" promptText="Switch IP Address" GridPane.columnIndex="1" />
             <ComboBox fx:id="switchtype" onAction="#getType" prefHeight="25.0" prefWidth="123.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Label text="Constraint" GridPane.rowIndex="2">
                <GridPane.margin>
@@ -56,6 +55,16 @@
                   <Insets left="10.0" />
                </GridPane.margin>
             </Button>
+            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+               <children>
+                  <Label fx:id="ipfield" text="Invalid IP Address" textFill="#f80e0e" visible="false">
+                     <VBox.margin>
+                        <Insets left="5.0" top="8.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField fx:id="Ip" onAction="#getIpAddr" />
+               </children>
+            </VBox>
          </children>
          <padding>
             <Insets left="5.0" />

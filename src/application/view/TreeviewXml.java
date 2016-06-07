@@ -57,10 +57,54 @@ import javafx.scene.control.TreeItem;
 	        	//specs.add("number_entry");
 	        	//System.out.println(Attribut);
 	        	
-	        	//PrintWriter writer = new PrintWriter("constraints.xml","UTF-8");
-	        	//writer.println("<?xml version=\"1.0\" encoding=\"UTF-8\"");
-	        	//writer.println("<switch>");
-	        	//writer.println("<path_processing constraints=\"True\" >");
+	        	PrintWriter writer = new PrintWriter("constraints.xml","UTF-8");
+	        	writer.println("<?xml version=\"1.0\" encoding=\"UTF-8\"");
+	        	writer.println("<switch>");
+	        	writer.println("<config>");
+	        	TreeItem<Object> root1 =  CompilerController.tree.getRoot();
+	        	ObservableList<TreeItem<Object>> node = root1.getChildren();
+
+	        	String ip = node.get(0).toString();
+	        	writer.println("<ip> "+ip+" </ip>");
+	      
+	            String type = node.get(1).toString();
+	        	writer.println("<type> "+type+" </type>");
+	        	writer.println("</config>");
+	        	writer.println("<path_processing>");
+	        	writer.println("<constraints type=\"RESSOURCE\"> table </constraints>");
+
+	        	ObservableList<TreeItem<Object>>  tables = node.get(2).getChildren();
+	        	
+	        	for(int i=0;i<tables.size();i++){
+	        	String table_id = tables.get(i).toString();
+	        	writer.println("<table id=\" "+table_id+"\"/>");
+	        	ObservableList<TreeItem<Object>> specs_tables = tables.get(i).getChildren();
+	        	writer.println("<constraints type=\"RESSOURCE\"> number_entry </constraints>");
+	        	writer.println("<constraints type=\"PERFORMANCE\"> matchfield </constraints>");
+	        	for(int j=0;j<specs_tables.size();j++){
+	        		if(j==0){
+	        			String matchField = specs_tables.get(j).toString();
+	        			writer.println("<matchfield> "+matchField +"</matchfield>");
+	        			continue;
+	        		}
+	        		if(j==1){
+	        			String number_entry = specs_tables.get(j).toString();
+	        			writer.println("<number_entry> "+number_entry +"</number_entry>");
+	        			continue;
+	        		}
+	        		
+	        	}
+	        	writer.println("</table>");
+	        	
+	        	}
+	        	writer.println("</path_processing>");
+	        	writer.println("<switch>");
+	        	writer.close();
+	        	
+	        	
+	        	
+	        	
+	        
 	        	
 	        	
 	        	

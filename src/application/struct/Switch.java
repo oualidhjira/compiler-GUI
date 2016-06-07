@@ -72,6 +72,11 @@ public class Switch {
 		i=i+1;
 		//System.out.println(this.constraint.toString());
 	}
+	public void modifyConstraint(int h,String Type,RessourcesConstraints Constraints){
+		HashMap<String,RessourcesConstraints> b=new HashMap<String,RessourcesConstraints>();
+		b.put(Type,Constraints);
+		this.constraint.put(h, b);
+	}
 	
 	//RessourcesConstraints
 }

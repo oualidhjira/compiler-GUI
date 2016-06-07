@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"
+<switch>
+<config>
+<ip> TreeItem [ value: 1.1.1.1 ] </ip>
+<type> TreeItem [ value: OvS ] </type>
+</config>
+<path_processing>
+<constraints type="RESSOURCE"> table </constraints>
+<table id=" TreeItem [ value: 0 ]"/>
+<constraints type="RESSOURCE"> number_entry </constraints>
+<constraints type="PERFORMANCE"> matchfield </constraints>
+<matchfield> TreeItem [ value: portdst ]</matchfield>
+<number_entry> TreeItem [ value: 1 ]</number_entry>
+</table>
+</path_processing>
+<switch>
